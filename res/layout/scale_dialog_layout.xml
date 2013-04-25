@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scale_dialog_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <Spinner
+        android:id="@+id/scale_dialog_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/scale_names" >
+
+    </Spinner>
+
+	<CheckBox
+	    android:id="@+id/scale_dialog_minor_checkbox"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="@string/minor" />
+
+	<SeekBar
+	    android:id="@+id/seekBar1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:max="300" />
+
+</LinearLayout>

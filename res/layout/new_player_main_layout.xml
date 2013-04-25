@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:name="com.kiwi9400.musicbot.NewPlayerFragment"
+    android:id="@+id/mainlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context=".MusicBot" >
+    
+		<TextView
+            android:id="@+id/entershowtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/entertext"
+            android:layout_alignParentTop="true"
+            android:gravity="center" />
+    	<Button
+            android:id="@+id/scalebutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/playscale"
+            android:gravity="center"
+            android:layout_below="@id/entershowtext"
+            />
+        <Button
+            android:id="@+id/chordsbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/playchords"
+            android:gravity="center"
+            android:layout_below="@id/scalebutton"
+            />
+
+
+
+		<Button
+		    android:id="@+id/helpbutton"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:gravity="center"
+		    android:text="@string/helpstring"
+		    android:layout_alignParentBottom="true" />
+
+</RelativeLayout>
