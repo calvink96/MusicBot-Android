@@ -7,13 +7,14 @@
 	<LinearLayout
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
-	    android:layout_weight="4"
+	    android:layout_weight="8"
 	    android:orientation="vertical" >
 
     	<TextView
         	android:id="@+id/playername"
         	android:layout_width="match_parent"
-        	android:layout_height="wrap_content"/>
+        	android:layout_height="wrap_content"
+        	android:textIsSelectable = "false"/>
 
     	<SeekBar
     	    android:id="@+id/seekBar1"
@@ -27,5 +28,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Play" />
+        android:text="P" />
+    <Button
+        android:id="@+id/closeplayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="X" />
 </LinearLayout>

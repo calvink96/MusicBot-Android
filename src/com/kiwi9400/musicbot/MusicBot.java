@@ -12,12 +12,16 @@ import android.util.Log;
 import android.view.*;
 import android.view.View.OnClickListener;
 import android.widget.*;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 
 public class MusicBot extends FragmentActivity implements ScaleChordHelperInterface {
 	//acts as a manager - assigns reference numbers to Player instances
 	Button scalebutton;
 	Button chordsbutton;
 	Button helpbutton;
+	
+	SeekBar volumeslider;
+	
 	ListView listview;
 	int i = 0;
 	ArrayAdapter<Player> players;
@@ -33,6 +37,24 @@ public class MusicBot extends FragmentActivity implements ScaleChordHelperInterf
         
         players = new ArrayAdapter<Player>(this, R.layout.player_layout_view,R.id.playername);
         players.setNotifyOnChange(true);
+        
+        //Maybe this will work to make each individual player_layout_view control the proper player
+        volumeslider = (SeekBar)findViewById(R.id.seekBar1);
+        volumeslider.setMax(100);
+        volumeslider.setProgress(100);
+        volumeslider.setOnSeekBarChangeListener(new OnSeekBarChangeListener(){
+        	public void onProgressChanged(SeekBar s, int i, boolean b){
+        		
+        	}
+			@Override
+			public void onStartTrackingTouch(SeekBar arg0) {
+				// TODO Auto-generated method stub
+			}
+			@Override
+			public void onStopTrackingTouch(SeekBar arg0) {
+				// TODO Auto-generated method stub
+			}
+        });
         
         listview.setAdapter(players);
         
