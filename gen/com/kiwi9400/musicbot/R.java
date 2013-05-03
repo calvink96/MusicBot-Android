@@ -27,7 +27,7 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000f;
+        public static final int action_settings=0x7f090010;
         public static final int chordsbutton=0x7f090002;
         public static final int closeplayer=0x7f09000b;
         public static final int entershowtext=0x7f090007;
@@ -41,8 +41,9 @@ public final class R {
         public static final int scale_dialog_minor_checkbox=0x7f09000e;
         public static final int scale_dialog_spinner=0x7f09000d;
         public static final int scalebutton=0x7f090001;
-        public static final int seekBar1=0x7f090009;
+        public static final int seekBar1=0x7f09000f;
         public static final int textView1=0x7f090005;
+        public static final int volumeslider=0x7f090009;
     }
     public static final class layout {
         public static final int activity_music_bot=0x7f030000;

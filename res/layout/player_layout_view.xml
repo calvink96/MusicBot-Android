@@ -17,7 +17,7 @@
         	android:textIsSelectable = "false"/>
 
     	<SeekBar
-    	    android:id="@+id/seekBar1"
+    	    android:id="@+id/volumeslider"
     	    android:layout_width="match_parent"
     	    android:layout_height="wrap_content"
     	     />

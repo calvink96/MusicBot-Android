@@ -1,6 +1,7 @@
 package com.kiwi9400.musicbot;
 
 import com.kiwi9400.musicbot.R;
+import com.kiwi9400.musicbot.Dialogs.ChordDialogFragment;
 import com.kiwi9400.musicbot.Dialogs.ScaleChordHelperInterface;
 import com.kiwi9400.musicbot.Dialogs.HelpDialogFragment;
 import com.kiwi9400.musicbot.Dialogs.ScaleDialogFragment;
@@ -14,7 +15,7 @@ import android.view.View.OnClickListener;
 import android.widget.*;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
-public class MusicBot extends FragmentActivity implements ScaleChordHelperInterface {
+public class MusicBot extends FragmentActivity implements ScaleChordHelperInterface, playerDisabledListener {
 	//acts as a manager - assigns reference numbers to Player instances
 	Button scalebutton;
 	Button chordsbutton;
@@ -24,7 +25,9 @@ public class MusicBot extends FragmentActivity implements ScaleChordHelperInterf
 	
 	ListView listview;
 	int i = 0;
-	ArrayAdapter<Player> players;
+	PlayerAdapter players;
+	int numdisabled = 0;
+	
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,26 +38,9 @@ public class MusicBot extends FragmentActivity implements ScaleChordHelperInterf
         
         listview = (ListView)findViewById(R.id.player_list_view);
         
-        players = new ArrayAdapter<Player>(this, R.layout.player_layout_view,R.id.playername);
+        players = new PlayerAdapter(this, R.layout.player_layout_view,R.id.playername);
         players.setNotifyOnChange(true);
         
-        //Maybe this will work to make each individual player_layout_view control the proper player
-        volumeslider = (SeekBar)findViewById(R.id.seekBar1);
-        volumeslider.setMax(100);
-        volumeslider.setProgress(100);
-        volumeslider.setOnSeekBarChangeListener(new OnSeekBarChangeListener(){
-        	public void onProgressChanged(SeekBar s, int i, boolean b){
-        		
-        	}
-			@Override
-			public void onStartTrackingTouch(SeekBar arg0) {
-				// TODO Auto-generated method stub
-			}
-			@Override
-			public void onStopTrackingTouch(SeekBar arg0) {
-				// TODO Auto-generated method stub
-			}
-        });
         
         listview.setAdapter(players);
         
@@ -79,12 +65,12 @@ public class MusicBot extends FragmentActivity implements ScaleChordHelperInterf
         });
     }
     public void scaleClick(){
-    	Log.d("scalebutton", "blah");
     	ScaleDialogFragment d = new ScaleDialogFragment();
     	d.show(getSupportFragmentManager(), "ScaleDialog");
     }
     public void chordClick(){
-    	Log.d("chordsbutton", "blahblah");
+    	ChordDialogFragment d = new ChordDialogFragment();
+    	d.show(getSupportFragmentManager(), "ChordDialog");
     }
     public void helpClick(){
     	HelpDialogFragment d = new HelpDialogFragment();
@@ -95,7 +81,7 @@ public class MusicBot extends FragmentActivity implements ScaleChordHelperInterf
     public void manageSelections(int type, int temp, String choscal){
     	Log.d("manage","managingselections");
     	players.add(new Player(type, choscal, temp, i, getCacheDir()));
-    	players.getItem(i).start();
+    	players.getItem(i-numdisabled).start();
     	i++;
     }
     
@@ -105,5 +91,9 @@ public class MusicBot extends FragmentActivity implements ScaleChordHelperInterf
         getMenuInflater().inflate(R.menu.music_bot, menu);
         return true;
     }
+    
+    public void disablePlayer() {
+		numdisabled++;
+	}
     
 }

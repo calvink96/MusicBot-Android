@@ -88,8 +88,17 @@ public class Player {
 			;
 		}
 	}
+	public void setVolume(float a, float b){
+		mp1.setVolume(a, b);
+	}
 	@Override
 	public String toString(){
 		return "Player "+idnum;
+	}
+	public void playpause() {
+		if (isPlaying())
+			pause();
+		else
+			play();
 	}
 }
