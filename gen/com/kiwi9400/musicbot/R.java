@@ -49,11 +49,10 @@ public final class R {
         public static final int activity_music_bot=0x7f030000;
         public static final int chord_dialog_layout=0x7f030001;
         public static final int help_layout=0x7f030002;
-        public static final int main_fragment=0x7f030003;
-        public static final int new_player_main_layout=0x7f030004;
-        public static final int player_layout_view=0x7f030005;
-        public static final int player_list=0x7f030006;
-        public static final int scale_dialog_layout=0x7f030007;
+        public static final int new_player_main_layout=0x7f030003;
+        public static final int player_layout_view=0x7f030004;
+        public static final int player_list=0x7f030005;
+        public static final int scale_dialog_layout=0x7f030006;
     }
     public static final class menu {
         public static final int music_bot=0x7f080000;

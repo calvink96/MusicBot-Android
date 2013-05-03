@@ -34,8 +34,6 @@ public class MusicBot extends FragmentActivity implements ScaleChordHelperInterf
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music_bot);
         
-        Log.d("d", getCacheDir().toString());
-        
         listview = (ListView)findViewById(R.id.player_list_view);
         
         players = new PlayerAdapter(this, R.layout.player_layout_view,R.id.playername);
@@ -79,7 +77,6 @@ public class MusicBot extends FragmentActivity implements ScaleChordHelperInterf
     
     @Override
     public void manageSelections(int type, int temp, String choscal){
-    	Log.d("manage","managingselections");
     	players.add(new Player(type, choscal, temp, i, getCacheDir()));
     	players.getItem(i-numdisabled).start();
     	i++;
