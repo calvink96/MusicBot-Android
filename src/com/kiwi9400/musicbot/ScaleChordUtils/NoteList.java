@@ -17,7 +17,7 @@ public class NoteList implements GetNotes {
 		rootnote = getRootNoteFromRoot(root);
 		modifiers = "";
 	}
-	public int getRootNoteFromRoot(String root){
+	public static int getRootNoteFromRoot(String root){
 		NoteEnum rootenum = NoteEnum.valueOf(root.replace("#", "S"));
 		switch(rootenum){
 		case C: 	return 0;

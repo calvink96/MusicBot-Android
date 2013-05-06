@@ -29,13 +29,14 @@ public final class R {
     }
     public static final class id {
         public static final int action_settings=0x7f090018;
-        public static final int add_new_chord=0x7f090006;
+        public static final int add_new_chord=0x7f090005;
         public static final int chord_options=0x7f09000b;
         public static final int chord_select=0x7f09000a;
         public static final int chord_tempo_disp=0x7f090008;
         public static final int chord_tempo_seek=0x7f090009;
+        public static final int chordlinear=0x7f090007;
         public static final int chordsbutton=0x7f090002;
-        public static final int chordslist=0x7f090007;
+        public static final int chordslist=0x7f090006;
         public static final int closeplayer=0x7f090012;
         public static final int entershowtext=0x7f09000e;
         public static final int help_layout=0x7f09000d;
@@ -51,7 +52,6 @@ public final class R {
         public static final int scale_tempo_disp=0x7f090016;
         public static final int scale_tempo_seek=0x7f090017;
         public static final int scalebutton=0x7f090001;
-        public static final int textView1=0x7f090005;
         public static final int volumeslider=0x7f090010;
     }
     public static final class layout {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical" >
 
     <Button
@@ -9,17 +9,22 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:text="Add Chord to Progression"
+        android:layout_alignParentTop="true"
         />
     
     <ListView
         android:id="@+id/chordslist"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add_new_chord"
+        android:layout_above="@+id/chordlinear" />
     
     <LinearLayout
+        android:id="@id/chordlinear"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	    android:orientation="horizontal" >
+	    android:orientation="horizontal"
+	    android:layout_alignParentBottom="true" >
 
 	    <TextView
 	        android:id="@+id/chord_tempo_disp"
@@ -28,7 +33,6 @@
 	        android:layout_weight="1"
 	        android:gravity="center" />
 	    
-
 		<SeekBar
 	    	android:id="@+id/chord_tempo_seek"
 	    	android:layout_width="wrap_content"
@@ -37,4 +41,4 @@
 	    	android:layout_weight="5" />
 	</LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

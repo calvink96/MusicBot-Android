@@ -1,5 +1,7 @@
 package com.kiwi9400.musicbot;
 
+import com.kiwi9400.musicbot.ScaleChordUtils.NoteList;
+
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,10 +23,9 @@ public class ChordAdapter extends ArrayAdapter<ChordHelper> {
 	public View getView(final int position, View convertView, ViewGroup parent){
 		View v = View.inflate(getContext(), R.layout.chord_list_item, null);
 		
-		getItem(position).root = "C";
-		getItem(position).mods = "M";
 		
 		root = (Spinner)v.findViewById(R.id.chord_select);
+		root.setSelection(NoteList.getRootNoteFromRoot(getItem(position).root));
 		root.setOnItemSelectedListener(new OnItemSelectedListener(){
 
 			@Override
@@ -39,12 +40,23 @@ public class ChordAdapter extends ArrayAdapter<ChordHelper> {
 		});
 		
 		opts = (Spinner)v.findViewById(R.id.chord_options);
+		String s = getItem(position).mods;
+		int modifiers = 0; //following adapted from Chord.java
+		if (s.contains("m7"))
+			modifiers = 4;
+		else if (s.contains("M7"))
+			modifiers = 3;
+		else if (s.contains("7"))
+			modifiers = 2;
+		else if (s.contains("m"))
+			modifiers = 1;
+		opts.setSelection(modifiers);
 		opts.setOnItemSelectedListener(new OnItemSelectedListener(){
 
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
-				getItem(position).mods = (String)opts.getSelectedItem();
+				getItem(position).mods = (String)opts.getItemAtPosition(arg2);
 				
 			}
 
