@@ -40,7 +40,11 @@ public class ChordDialogFragment extends DialogFragment {
 	}
 	
 	public void passPlayer(){
-		
+		String prog = "";
+		for (int i=0;i<c.getCount();i++){
+			prog+= c.getItem(i).toString()+" ";
+		}
+		mbhelp.manageSelections(1, bartempo, prog);
 	}
 	
 	@Override

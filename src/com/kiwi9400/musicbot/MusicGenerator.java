@@ -72,8 +72,8 @@ public class MusicGenerator {
 				while (c<((len)-4)){
 					c = d;
 					d+=r.nextInt(3)+1;
-					t.insertEvent(new NoteOn(c*480, 1, notes[st], 120));
-					t.insertEvent(new NoteOff(d*480, 1, notes[st], 120));
+					t.insertEvent(new NoteOn(c*120, 1, notes[st], 120));
+					t.insertEvent(new NoteOff(d*120, 1, notes[st], 120));
 					st+= r.nextInt(5)-((st<5)?1:(st>notes.length-5)?3:2);//make it a little bit easier for the music to get out of the low end
 					// had a tendency to get stuck playing low notes for a long time, also do the high notes
 					if (st<0){ //we don't want any indexing errors 
@@ -85,14 +85,14 @@ public class MusicGenerator {
 				}
 				c = d;
 				d = (k*len);
-				t.insertEvent(new NoteOn(c*480, 1, notes[st], 110));
-				t.insertEvent(new NoteOff(d*480, 1, notes[st], 110));
+				t.insertEvent(new NoteOn(c*120, 1, notes[st], 110));
+				t.insertEvent(new NoteOff(d*120, 1, notes[st], 110));
 			}
 			if (type==1){
 				for (int i=0;i<len/4;i++){
 					for (int j=0; j<4;j++){
-						t.insertEvent(new NoteOn(((k*len)+4*i)*480, 1, notes[20+j], 100));
-						t.insertEvent(new NoteOff(((k*len)+4*i+1)*480, 1, notes[20+j], 100));
+						t.insertEvent(new NoteOn(((k*len)+4*i)*120, 1, notes[20+j], 100));
+						t.insertEvent(new NoteOff(((k*len)+4*i+1)*120, 1, notes[20+j], 100));
 					}
 				}
 				st-=st%4;//if it's a chord progression, make the next chord start on the root
