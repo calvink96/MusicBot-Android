@@ -26,5 +26,12 @@
         <item >B</item>
     </string-array>
     <string name="minor">Minor?</string>
+    <string-array name="chord_options">
+        <item >M</item>
+        <item >m</item>
+        <item >7</item>
+        <item >M7</item>
+        <item >m7</item>
+    </string-array>
 
 </resources>

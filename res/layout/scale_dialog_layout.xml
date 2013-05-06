@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
-
+    
     <Spinner
         android:id="@+id/scale_dialog_spinner"
         android:layout_width="wrap_content"
@@ -20,10 +20,24 @@
 	    android:layout_height="wrap_content"
 	    android:text="@string/minor" />
 
-	<SeekBar
-	    android:id="@+id/seekBar1"
+	<LinearLayout
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	    android:max="300" />
+	    android:orientation="horizontal" >
+
+	    <TextView
+	        android:id="@+id/scale_tempo_disp"
+	        android:layout_width="wrap_content"
+	        android:layout_height="match_parent"
+	        android:layout_weight="1"
+	        android:gravity="center" />
+
+		<SeekBar
+	    	android:id="@+id/scale_tempo_seek"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:max="199"
+	    	android:layout_weight="5" />
+	</LinearLayout>
 
 </LinearLayout>

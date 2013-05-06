@@ -3,6 +3,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/add_new_chord"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Add Chord to Progression"
+        />
     
+    <ListView
+        android:id="@+id/chordslist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    
+    <LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal" >
+
+	    <TextView
+	        android:id="@+id/chord_tempo_disp"
+	        android:layout_width="wrap_content"
+	        android:layout_height="match_parent"
+	        android:layout_weight="1"
+	        android:gravity="center" />
+	    
+
+		<SeekBar
+	    	android:id="@+id/chord_tempo_seek"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:max="199"
+	    	android:layout_weight="5" />
+	</LinearLayout>
 
 </LinearLayout>

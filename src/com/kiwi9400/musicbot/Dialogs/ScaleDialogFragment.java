@@ -8,15 +8,14 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class ScaleDialogFragment extends DialogFragment {
 	ScaleChordHelperInterface mbhelp;
@@ -26,6 +25,7 @@ public class ScaleDialogFragment extends DialogFragment {
 	Spinner sp;
 	CheckBox cb;
 	SeekBar sb;
+	TextView tv;
 	
 	public ScaleDialogFragment(){
 		super();
@@ -74,12 +74,17 @@ public class ScaleDialogFragment extends DialogFragment {
 				min = isChecked;
 			}
 		});
-		sb = (SeekBar)v.findViewById(R.id.seekBar1);
+		
+		tv = (TextView)v.findViewById(R.id.scale_tempo_disp);
+		
+		sb = (SeekBar)v.findViewById(R.id.scale_tempo_seek);
+		sb.setProgress(120);
 		sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
-				bartempo = progress;
+				bartempo = progress+1;
+				tv.setText(""+(progress+1));
 			}
 			@Override
 			public void onStartTrackingTouch(SeekBar seekBar) {
@@ -88,6 +93,8 @@ public class ScaleDialogFragment extends DialogFragment {
 			public void onStopTrackingTouch(SeekBar seekBar) {
 			}
 		});
+		
+		tv.setText(""+sb.getProgress());
 		
 		return new AlertDialog.Builder(getActivity())
 		.setPositiveButton(R.string.ok,
@@ -99,7 +106,6 @@ public class ScaleDialogFragment extends DialogFragment {
 			}
 		)
 		.setView(v)
-	
 		.create();
 	}
 }

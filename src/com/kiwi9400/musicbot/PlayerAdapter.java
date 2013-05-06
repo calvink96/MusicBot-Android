@@ -19,9 +19,9 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
 		super(context, resid, textViewResourceId);
 		// TODO Auto-generated constructor stub
 	}
-	public void add(Player p){
+	/*public void add(Player p){
 		super.add(p);
-	}
+	}*/
 	public void disable(int i){
 		getItem(i).stop();
 		remove(getItem(i));
